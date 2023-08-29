@@ -99,7 +99,7 @@ class ClickOperations  :
         if button=="AC" :
             Gui.screen_entry.delete(0,END)
         else :
-            if Gui.screen_entry.get()=="0" or re.search(patterns.patterns_dict["pattern"] , Gui.screen_entry.get()):
+            if Gui.screen_entry.get()=="0" or re.search(patterns.patterns_dict["pattern"] , Gui.screen_entry.get()) or Gui.screen_entry.get().endswith("Error"):
                 Gui.screen_entry.delete(0,END)
             if button=="+/-" :
                  Gui.screen_entry.insert(0,"-")
@@ -109,7 +109,8 @@ class ClickOperations  :
     def _equal_click() : 
         expression = Gui.screen_entry.get()
         Gui.screen_entry.insert(END,"=")
-        result = eval(expression)
+        try : result = eval(expression)
+        except ZeroDivisionError : Gui.screen_entry.insert(END,"Error")
         Gui.screen_entry.insert(END,result)
 
 

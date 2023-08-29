@@ -112,7 +112,8 @@ class ClickOperations  :
         Gui.screen_entry.insert(END,"=")
         try : result = eval(expression)
         except ZeroDivisionError : Gui.screen_entry.insert(END,"Error")
-        Gui.screen_entry.insert(END,result)
+        else :
+            Gui.screen_entry.insert(END,result)
 
 
 Gui.create_output_screen()

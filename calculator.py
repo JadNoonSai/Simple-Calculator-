@@ -96,10 +96,11 @@ class ClickOperations  :
     
     @staticmethod
     def _button_click(button):
+        on_screen = Gui.screen_entry.get()
         if button=="AC" :
             Gui.screen_entry.delete(0,END)
         else :
-            if Gui.screen_entry.get()=="0" or re.search(patterns.patterns_dict["pattern"] , Gui.screen_entry.get()) or Gui.screen_entry.get().endswith("Error"):
+            if on_screen=="0" or re.search(patterns.patterns_dict["pattern"] , on_screen) or on_screen.endswith("Error"):
                 Gui.screen_entry.delete(0,END)
             if button=="+/-" :
                  Gui.screen_entry.insert(0,"-")

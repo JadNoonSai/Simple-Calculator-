@@ -1,5 +1,5 @@
 
-from tkinter import *
+from tkinter import Button,Tk,Entry,END
 # font module must be called explicitly cuz it is not defined in __all__ in __init__.py 
 from tkinter import font
 from tkmacosx import Button as macButton
